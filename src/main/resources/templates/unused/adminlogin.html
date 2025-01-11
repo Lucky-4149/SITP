@@ -1,0 +1,125 @@
+<html th:replace="~{base::layout(~{::section})}">
+<head></head>
+<body>
+
+
+	<section>
+		<!-- Main Content -->
+			<div class="row main-content text-center">
+				<div class="col-md-5 text-center company__info">
+					<img alt="image not found" src="images/adminlogin.jpg" class="w-75 mx-auto">
+					<!-- <h4 class="company_title pb-4 pt-3">Welcome <br> <span class="text-orange">To</span> <br> Softpro India</h4>
+				 -->
+				</div>
+				<div class="col-md-7 col-xs-12 col-sm-12 login_form ">
+					<div class="container-fluid">
+						<div class="row pt-3">
+							<h2>Admin Login</h2>
+						</div>
+						<div class="row">
+							<div th:if="${msg}">
+								<input type="hidden" id="msg" th:value="${msg}">
+							</div>
+							<form class="form-group" method="post" th:object="${dto}">
+								<div class="row px-5">
+									<input type="text" th:field="${dto.userid}" id="username" class="form__input" placeholder="Username..." required>
+								</div>
+								<div class="row px-5">
+									<input type="password" th:field="${dto.password}" id="password" class="form__input" placeholder="Password..." required>
+								</div>
+								
+								<div class="row">
+									<input type="submit" value="Submit" class="submitbtn mx-auto py-2">
+								</div>
+							</form>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+
+		<style>
+.main-content {
+	width: 60%;
+	border-radius: 20px;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
+	margin: 2.5em auto;
+	display: flex;
+}
+
+.company__info {
+	background-color: #ffff;
+	/*background-image: radial-gradient(150px 150px at 95% 95%, rgba(253, 186, 43, 0.3) 0%, rgba(253, 186, 43, 0) 100%), radial-gradient(150px 150px at 5% 100%, rgba(253, 186, 43, 0.3) 0%, rgba(253, 186, 43, 0.3) 100%);
+	*/
+	border-top: 1px solid #ccc;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-weight: 500;
+}
+
+
+@media screen and (max-width: 640px) {
+	.main-content {
+		width: 90%;
+	}
+	.company__info {
+		display: none;
+	}
+	.login_form {
+		border-top-left-radius: 20px;
+		border-bottom-left-radius: 20px;
+		background-image: radial-gradient(150px 150px at 95% 95%, rgba(253, 186, 43, 0.3) 0%, rgba(253, 186, 43, 0) 100%), radial-gradient(150px 150px at 5% 0%, rgba(253, 186, 43, 0.3) 0%, rgba(253, 186, 43, 0) 100%);	
+	}
+}
+
+@media screen and (min-width: 642px) and (max-width:800px) {
+	.main-content {
+		width: 70%;
+	}
+}
+
+
+.login_form {
+	background-color: #fff;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+form {
+	padding: 0 2em;
+}
+
+.form__input {
+	width: 100%;
+	border: 0px solid transparent;
+	border-radius: 0;
+	border-bottom: 1px solid #aaa;
+	padding: 1em .5em .5em;
+	padding-left: 2em;
+	outline: none;
+	margin: 1.5em auto;
+	transition: all .5s ease;
+	background: transparent;
+	font-size: 18px;
+}
+
+.form__input:focus {
+	border-bottom-color: #008080;
+	box-shadow: 0 0 5px rgba(0, 80, 80, .4);
+	border-radius: 4px;
+}
+
+.top-icon ul li a
+{
+	padding-top:5px;
+}
+</style>
+	</section>
+</body>
+</html>

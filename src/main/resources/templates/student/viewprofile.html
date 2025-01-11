@@ -1,0 +1,150 @@
+<html th:replace="~{student/studentbase::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">See Your Information</h5>
+							<p class="m-b-0">Welcome to Softpro India</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="stdhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="course">View
+									Profile</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<!-- Main Section Started -->
+		<div class="pcoded-inner-content">
+			<div class="main-body">
+				<div class="page-wrapper">
+
+					<div class="page-body">
+						<div class="row">
+							<div class="col-sm-10 mx-auto">
+								<div class="card">
+									<div class="card-header">
+										<h5 class="d-flex">
+											Student - <span th:text="${stdinfo.name}"></span>
+										</h5>
+										<span>Complete Data of a single Student</span>
+										<div class="card-header-right">
+											<a onclick="goBack();" class="text-decoration-none"> 
+												<i class="ti-arrow-circle-left" style="font-size: 20px; font-weight: bold;"></i>
+											</a>
+										</div>
+										<script>
+											function goBack() {
+												window.history.back();
+											}
+										</script>
+									</div>
+									<div class="card-block">
+										<div class="row px-2 px-lg-4">
+											<div class="col-sm-4">
+												<div class="mx-auto" style="height: 200px; width: 200px;">
+													<img th:if="${stdinfo.profilepic}" alt="Image not found.."
+														style="width: 100%; height: 100%;"
+														th:src="@{'/profile/'+${stdinfo.profilepic}}"> <img
+														th:unless="${stdinfo.profilepic}" alt="Image not found.."
+														style="width: 100%; height: 100%;"
+														src="../assets/images/faq_man.png">
+												</div>
+											</div>
+											<div class="col-sm-8">
+												<table class="std-table mx-auto mt-3">
+													<tr>
+														<th>Student Name</th>
+														<td th:text="${stdinfo.name}">ABCD</td>
+													</tr>
+													<tr>
+														<th>Email Address</th>
+														<td th:text="${stdinfo.email}">ABCD</td>
+													</tr>
+													<tr>
+														<th>Contact Number</th>
+														<td th:text="${stdinfo.contactno}">123</td>
+													</tr>
+													<tr>
+														<th>Whatsapp Number</th>
+														<td th:text="${stdinfo.whatsappno}">123</td>
+													</tr>
+
+												</table>
+											</div>
+										</div>
+										<hr>
+										<div class="row p-2 px-lg-4">
+											<div class="col-sm-12">
+												<h2 class="text-center text-primary p-2">Other Details</h2>
+												<table class="std-table mx-auto " style="width: 70%;">
+													<tr>
+														<th>College Name</th>
+														<td th:text="${stdinfo.collegename}">ABCD</td>
+													</tr>
+													<tr>
+														<th>Enrollment No</th>
+														<td th:text="${stdinfo.enrollmentno}">E123</td>
+													</tr>
+													<tr>
+														<th>Course</th>
+														<td th:text="${stdinfo.course}">ABCD</td>
+													</tr>
+													<tr>
+														<th>Branch</th>
+														<td th:text="${stdinfo.branch}">ABCD</td>
+													</tr>
+													<tr>
+														<th>Persuing Year</th>
+														<td th:text="${stdinfo.year}">123</td>
+													</tr>
+													<tr>
+														<th>Aggregate Marks</th>
+														<td th:text="${stdinfo.aggregatemarks}">123</td>
+													</tr>
+													<tr>
+														<th>Intermediate Marks %</th>
+														<td th:text="${stdinfo.intermediatep}">100%</td>
+													</tr>
+													<tr>
+														<th>HighSchool Marks %</th>
+														<td th:text="${stdinfo.highschoolp}">100%</td>
+													</tr>
+													<tr>
+														<th>Registration Date</th>
+														<td th:text="${stdinfo.regdate}">00/00/0000</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<style>
+.std-table th, .std-table td {
+	margin: 10px;
+	padding: 10px 20px;
+}
+</style>
+	</section>
+</body>
+</html>

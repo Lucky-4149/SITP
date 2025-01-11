@@ -1,0 +1,68 @@
+
+
+.bg-orange{
+	background-color: #ef662f;
+}
+
+.bg-gray{
+	background-color: #f4f2f2dd;	
+}
+
+.text-orange{
+	color: #ef662f;
+}
+
+.btn-orange{
+	background-color: #ef662f;
+	transition:0.5s;
+	color: white;
+}
+
+
+.btn-orange:hover{
+	background-color: #ef662f;
+	color: white;
+	box-shadow: 0px 0px 10px gray;
+}
+
+
+
+
+/* Nav top Icon CSS*/
+.top-icon ul{
+	display: flex;
+}
+.top-icon ul li{
+	list-style-type: none;
+}
+
+.top-icon ul li a{
+	text-decoration: none;
+	color: white;
+	background-color:  #ef662f;
+	margin: 4px;
+	display:inline-block;
+	height:25px;
+	width:25px;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 25px !important;
+	/* padding-top:5px; */
+}
+
+.nv-bar
+{
+	background-image: radial-gradient(150px 150px at 95% 0%, rgba(253, 186, 43, 0.3) 0%, rgba(253, 186, 43, 0) 100%), radial-gradient(150px 150px at 5% 0%, rgba(253, 186, 43, 0.3) 0%, rgba(253, 186, 43, 0) 100%);
+}
+
+/*
+.nav-item{
+	height:30px !important;
+	width : 100px !important;
+	border:1px solid red !important;
+}
+*/
+
+
+
+

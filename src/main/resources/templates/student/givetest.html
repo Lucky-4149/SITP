@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en"
+	th:replace="~{student/studentbase::layout(~{::section})}">
+<head>
+</head>
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Give Test</h5>
+							<p class="m-b-0">Welcome to Softpro India</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="stdhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="givetest">Give Test</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<!-- Main Section Started -->
+		<div class="pcoded-inner-content">
+			<div>
+				<div class="row m-2 card shadow"
+					style="border-radius: 10px; padding: 20px; background-color: white;">
+					<div class="col-sm-12">
+						<!-- Instructions Heading -->
+						<div class="row mt-2 mb-2">
+							<h3 style="color: #ef662f; font-weight: bold; margin: 4px;">Important
+								Instructions</h3>
+						</div>
+						<hr>
+
+						<!-- Instructions List -->
+						<div class="row mt-2 mb-3 mx-1">
+							<h6>Kindly go through the below mentioned set of
+								instructions before giving the online test</h6>
+							<ul style="margin-left: 20px; list-style-type: disc;">
+								<li style="margin-bottom: 5px;">All questions are
+									compulsory.</li>
+								<li style="margin-bottom: 5px;">This test is timer-based,
+									so manage your time efficiently and answer questions quickly.</li>
+								<li style="margin-bottom: 5px;">There is no negative
+									marking, but avoid random guessing.</li>
+								<li style="margin-bottom: 5px;">Do not open other tabs or
+									windows, as doing so will automatically submit your test.</li>
+								<li style="margin-bottom: 5px;">Read each question
+									carefully before answering.</li>
+								<li style="margin-bottom: 5px;">The questions are based on
+									your syllabus.</li>
+								<li style="margin-bottom: 5px;">Ensure a stable internet
+									connection throughout the test.</li>
+								<li style="margin-bottom: 5px;">Have a backup power source
+									in case of power outages.</li>
+								<li style="margin-bottom: 5px;">Keep your student ID and
+									login credentials ready before the test begins.</li>
+								<li style="margin-bottom: 5px;">Make sure your device is
+									fully charged or plugged in.</li>
+								<li style="margin-bottom: 5px;">Have a pen and paper ready
+									for rough work if needed.</li>
+								<li style="margin-bottom: 5px;">Log in to the test platform
+									at least 10 minutes before the start time.</li>
+								<li style="margin-bottom: 5px;">Familiarize yourself with
+									the test interface beforehand.</li>
+								<li style="margin-bottom: 5px;">If you encounter technical
+									issues, immediately notify the test proctor or technical
+									support.</li>
+								<li style="margin-bottom: 5px;">Avoid distractions and
+									ensure you are in a quiet environment.</li>
+								<li style="margin-bottom: 5px;">Use a comfortable and
+									ergonomic setup to maintain focus during the test.</li>
+							</ul>
+						</div>
+
+						<!-- Declaration Checkbox -->
+						<div style="display: flex; align-items: flex-start;">
+							<input type="checkbox" id="declare"
+								style="margin-right: 10px; margin-top: 3px;"> <label
+								for="declare" style="font-style: italic;"> I hereby
+								declare that I have read all the important instructions
+								mentioned above before giving the Online Internship Test. </label>
+						</div>
+
+						<!-- Start Test Button -->
+						<div class="row m-3 text-center">
+							<input type="hidden" th:if="${message}" th:value="${message}">
+							<!-- Button trigger modal -->
+							<button type="button" id="starttestbtn" class="px-4 py-2 mx-auto"
+								data-toggle="modal" data-target="#exampleModal">
+								Start Test
+							</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<style>
+#starttestbtn {
+	color: white;
+	border: none;
+	border-radius: 20px;
+	font-size: 1rem;
+	background-color: rgb(239, 102, 47, 0.5);
+	cursor: not-allowed;
+}
+</style>
+
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+		<script>
+		
+		
+		var chk = document.getElementById("declare");
+		var btn = document.getElementById("starttestbtn");
+		btn.disabled=true;
+		chk.addEventListener('change', ()=>{
+			if(chk.checked)
+			{
+				btn.style.backgroundColor="#ef662f";
+				btn.style.cursor="pointer";
+				btn.disabled=false;
+				btn.addEventListener('click',()=>{
+					window.location.href='starttest';
+				})
+			}
+			else{
+				btn.style.backgroundColor="rgb(239,102,47,0.5)";
+				btn.style.cursor="not-allowed";
+				btn.disabled=true;
+			}	
+		})
+		
+			btn.addEventListener('click',()=>{
+			
+				const questionfound = document.getElementById("questionfound").value;
+				
+				/* if(!questionfound)
+				{ */
+					Swal.fire({
+						  title: 'There is no Question found!',
+						  text: 'Please contact our team',
+						  icon: 'error',
+						  confirmButtonText: 'Cool'
+						})	
+				
+			})
+		</script>
+
+	</section>
+
+</body>
+</html>

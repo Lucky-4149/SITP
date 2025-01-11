@@ -1,0 +1,136 @@
+<html th:replace="~{base::layout(~{::section})}">
+
+<head></head>
+
+<body>
+	<section>
+		<h2 class="text-center mt-2 fw-bold pt-2">CONTACT US!</h2>
+		<h5 class="text-center">
+			<a href="/">
+				<i class="fa-solid fa-house home-icon" style="color: #ef662f;"></i>
+			</a>
+		</h5>
+		<div th:if="${msg}" class="alert alert-warning alert-dismissible fade show w-50 mx-auto">
+			<b th:text="${msg}"></b>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close"></button>
+		</div>
+		<div class="col-sm-10 mx-auto">
+
+			<form method="post" th:object="${dto}">
+				<!--Enroll-->
+				<div class="row mt-5 p-4 " style="border:1px solid white; box-shadow: 0px 2px 8px gray">
+					<div class="col-md-7">
+						<h4 class="mt-4 text-center fw-bold">Have a question? Connect to our team of Experts!</h4>
+						<hr>
+
+						<div class="row py-3">
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">First Name<span class="text-orange">*</span></label>
+								<input type="text" th:field="${dto.firstname}" class="form-control rounded-0 border border-black"
+									placeholder="Eg: Manish..." required>
+
+							</div>
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Last Name<span class="text-orange">*</span></label>
+								<input type="text" th:field="${dto.lastname}" class="form-control rounded-0 border border-black" placeholder="Eg: Yadav..."
+									required>
+
+							</div>
+						</div>
+						<div class="row py-3">
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Email Address<span class="text-orange">*</span></label>
+								<input type="text" th:field="${dto.email}" class="form-control rounded-0 border border-black"
+									placeholder="Eg: softproindia@gmail.com" required>
+
+							</div>
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Contact No.<span class="text-orange">*</span></label>
+								<input type="number" th:field="${dto.contactno}" class="form-control rounded-0 border border-black" placeholder="Eg: +999999999"
+									required>
+								
+							</div>
+						</div>
+						<div class="row py-3">
+							<div class="col-sm-12">
+								<label class="fw-bold py-2">Send a message<span class="text-orange">*</span></label>
+								<textarea type="text" th:field="${dto.enquirytext}" class="form-control rounded-0 border border-black"
+									placeholder="Write your message here..." rows="3" required></textarea>
+							</div>
+						</div>
+						<!--Buttons-->
+						<div class="row mt-4">
+
+							<div class="col-sm-12  text-end">
+								<button type="reset"
+									class="btn btn-secondary rounded-0 fs-5 fw-bold py-2 px-4">Reset</button>
+								<button type="submit"
+									class=" btn btn-orange rounded-0 fs-5 fw-bold py-2 px-4">Send</button>
+								
+							</div>
+
+						</div>
+						<!--Buttons-->
+					</div>
+					<div class="col-md-5">
+						<div class="row bg-dark opacity-75 m-0 my-4 m-lg-4">
+							<div class="text-light m-3 ">
+								<h4>Contact Info</h4>
+								<div class="row ">
+									<div class="col-1 "><i class="fa-solid fa-location-dot"
+											style="color: #ffffff; background-color: orangered; padding:8px; border-radius: 60%;"></i>
+									</div>
+
+									<div class="col-11 ">
+										&nbsp <b>Head Office:</b> Softpro Tower Near
+										New<br>&nbsp Hanuman Temple, Kapoorthala
+										Aliganj,<br>&nbsp Lucknow (UP)-226006
+									</div>
+								</div>
+								<br>
+								<div class="row d-flex align-items-center">
+									<div class="col-1 text-end"><i class="fa-solid fa-envelope"
+											style="color: #fafcff; background-color: orangered; padding:8px; border-radius: 60%"></i>
+									</div>
+									<div class="col-11">
+										&nbsp <b>Mail:</b> hr@softproindia.in
+									</div>
+								</div>
+								<br>
+								<div class="row d-flex align-items-center">
+									<div class="col-1 text-end"><i class="fa-solid fa-phone"
+											style="color: #ffffff; background-color: orangered; padding:8px; border-radius: 60%"></i>
+									</div>
+									<div class="col-11 text-start">
+										&nbsp <b>Call:</b> +91 7080102006
+									</div>
+								</div>
+								
+							</div>
+
+						</div>
+						<div class="row p-0 px-lg-4">
+							<div>
+								<iframe class="w-100 h-100"
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.6469861422156!2d80.94720517512025!3d26.882954661369435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfdf6aed70b65%3A0xa7228a71571c6820!2sSoftpro%20India!5e0!3m2!1sen!2sin!4v1729100099753!5m2!1sen!2sin"
+									style="border:0;" allowfullscreen="" loading="lazy"
+									referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
+						</div>
+					</div>
+
+
+					<!--Enroll-->
+				</div>
+			</form>
+		</div>
+		
+		<style>
+		 .top-icon ul li a{
+		   padding-top: 5px;
+		 }
+		</style>
+	</section>
+</body>
+
+</html>

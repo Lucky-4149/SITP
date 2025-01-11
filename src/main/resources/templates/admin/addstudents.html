@@ -1,0 +1,253 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Dashboard</h5>
+							<p class="m-b-0">Welcome to Softpro India</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="index.html"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<div class="pcoded-inner-content">
+			<div class="row">
+				<div class="col-sm-8 mx-auto py-1 bg-orange">
+					<h2 class="text-center">Student Registration</h2>
+				</div>
+			</div>
+
+			<form th:object="${dto}" method="post">
+				<div class="row py-1">
+					<div class="col-sm-10 bg-white py-3 pb-5 px-5 mx-auto"
+						style="box-shadow: 0px 0px 5px gray;">
+						<div class="row p-3 py-2">
+							
+							<div class="col-sm-12 py-3">
+								<label class="fw-bold py-2">Select Test Name<span class="text-danger">*</span></label> 
+								<select id="test" required th:field="${dto.testname}" class="form-control rounded-0 border border-black">
+									<option value="">-Select Active Test-</option>
+									<th:block th:each="tests : ${testList}">
+										<option th:value="${tests.testname}" th:text="${tests.testname}"></option>
+									</th:block>
+								</select>
+							</div>
+							
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Enrollment No <span class="text-danger">*</span></label> 
+								<input type="text" th:field="${dto.enrollmentno}" required class="form-control rounded-0 border border-black" placeholder="Enter Student Enrollment Number..." />
+							</div>
+							
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Name <span class="text-danger">*</span></label> 
+								<input type="text" required th:field="${dto.name}" class="form-control rounded-0 border border-black" placeholder="Enter Student Name...">
+							</div>
+						</div>
+
+						<div class="row p-3 py-2">
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Contact Number <span class="text-danger">*</span></label> 
+								<input type="number" required th:field="${dto.contactno}" class="form-control rounded-0 border border-black" placeholder="Enter Student Contact Number...">
+							</div>
+							
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Whatsapp Number <span class="text-danger">*</span></label> 
+								<input type="number" required th:field="${dto.whatsappno}" class="form-control rounded-0 border border-black" placeholder="Enter Student Whatsapp Number...">
+							</div>
+						</div>
+
+						<div class="row p-3 py-2">
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Email <span class="text-danger">*</span></label> 
+								<input type="email" required th:field="${dto.email}" class="form-control rounded-0 border border-black" placeholder="Enter Student Email Address...">
+							</div>
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Password <span class="text-danger">*</span></label> 
+								<input type="password" required th:field="${dto.password}" class="form-control rounded-0 border border-black" placeholder="Enter Password...">
+							</div>
+						</div>
+
+						<div class="row p-3 py-2">
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">College Name <span class="text-danger">*</span></label> 
+								<select id="dropdown" required th:field="${dto.collegename}" class="form-control rounded-0 border border-black">
+									<option value="">-Select College-</option>
+									<th:block th:each="college : ${collegeList}">
+										<option th:value="${college.collegename}" th:text="${college.collegename}"></option>
+									</th:block>	
+								</select> 				
+							</div>
+							
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Course <span class="text-danger">*</span></label> 
+								<select id="course" required th:field="${dto.course}" class="form-control rounded-0 border border-black">
+									<option value="">-Select Course-</option>
+									<th:block th:each="course : ${courseList}">
+										<option th:value="${course.coursename}" th:text="${course.coursename}"></option>
+									</th:block>
+								</select>
+							</div>
+						</div>
+
+						<div class="row p-3 py-2">
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Branch <span class="text-danger">*</span></label> 
+								<select required th:field="${dto.branch}" class="form-control rounded-0 border border-black">
+									<option value="">-Select Branch-</option>
+									<th:block th:each="b: ${branchList}">
+										<option th:value="${b.branchname}" th:text="${b.branchname}"></option>
+									</th:block>
+								</select>
+							</div>
+							<div class="col-sm-6">
+								<label class="fw-bold py-2">Year <span class="text-danger">*</span></label> 
+								<select required th:field="${dto.year}"  id="year" class="form-control rounded-0 border border-black">
+									<option value="">--Select Year--</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-10 mx-auto">
+						<h5 class="fw-bold py-3">Academic Details</h5>
+					</div>
+					<div class="col-sm-10 bg-white py-3 px-5 mx-auto"
+						style="box-shadow: 0px 0px 5px gray;">
+						<h6 class="text-orange fw-bold">Performance</h6>
+						<hr>
+						<div class="row p-3 py-2">
+							<div class="col-sm-6 py-2">
+								<label class="fw-bold py-2">10<sup>th</sup> Percentage <span class="text-danger">*</span></label> 
+								<input type="text" required th:field="${dto.highschoolp}" class="form-control rounded-0 border border-black" placeholder="Enter Highschool percentage...">
+							</div>
+							
+							<div class="col-sm-6 py-2">
+								<label class="fw-bold py-2">10<sup>th</sup> Passout Year <span class="text-danger">*</span></label> 
+								<input type="text" required th:field="${dto.highpassoutyear}" class="form-control rounded-0 border border-black" placeholder="Enter Highschool Passout Year...">
+							</div>
+							
+							<div class="col-sm-6 py-2">
+								<label class="fw-bold py-2">10<sup>th</sup> Board <span class="text-danger">*</span></label> 
+								<input type="text" required th:field="${dto.highboard}" class="form-control rounded-0 border border-black" placeholder="Enter Highschool Board...">
+							</div>
+							
+							
+							<div class="col-sm-6 py-2">
+								<label class="fw-bold py-2">12 <sup>th</sup>/Diploma Percentage <span class="text-danger">*</span></label> 
+								<input type="text" required th:field="${dto.intermediatep}" class="form-control rounded-0 border border-black" placeholder="Enter 12th percentage...">
+							</div>
+							
+							<div class="col-sm-6 py-2">
+								<label class="fw-bold py-2">12 <sup>th</sup><span id="diplomap">/Diploma</span> Passout Year <span class="text-danger">*</span></label> 
+								<input type="text" required th:field="${dto.intermediatepassoutyear}" class="form-control rounded-0 border border-black" placeholder="Enter Passout Year...">
+							</div>
+							
+							<div class="col-sm-6 py-2">
+								<label class="fw-bold py-2">12 <sup>th</sup>/Diploma Board <span class="text-danger">*</span></label> 
+								<input type="text" required th:field="${dto.intermediateboard}" class="form-control rounded-0 border border-black" placeholder="Enter Interemediate/Diploma Board...">
+							</div>
+							
+							<div class="col-sm-12 py-3" id="aggregatemarks">
+								<label class="fw-bold py-2">Aggregate Marks %<span class="text-danger">*</span></label> 
+								<input type="text" th:field="${dto.aggregatemarks}" class="form-control rounded-0 border border-black" placeholder="Enter Aggregate marks...">
+							</div>
+						</div>
+					</div>
+				
+					<div class="col-sm-10 text-center pt-4 mx-auto">
+						<button type="reset"
+							class="btn btn-secondary fs-5 mx-3 fw-bold py-2 px-4 rounded-0">Reset</button>
+						<button type="submit"
+							class="btn btn-primary py-2 mx-3 px-4 fs-5 fw-bold rounded-0">Submit</button>
+
+					</div>
+				</div>
+
+
+			</form>
+		</div>
+		<style>
+.home-icon {
+	display: inline-block;
+	border: 1px solid;
+	padding: 10px;
+	border-radius: 6px;
+	color: white;
+	transition: 0.5s;
+}
+
+.home-icon:hover {
+	color: orangered;
+	background-color: white;
+	transition: 0.5s;
+}
+
+.fw-bold{
+ font-weight: bold;
+}
+</style>
+		    
+    <script>
+    const courseSelect = document.getElementById('course');
+    //const yearGroup = document.getElementById('yearGroup');
+    const yearSelect = document.getElementById('year');
+	const aggregatemarks = document.getElementById('aggregatemarks');
+	const diplomatext = document.getElementById("diplomap");
+    const courseYearMap = {
+        BTECH: ["First Year", "Second Year", "Third Year", "Fourth Year"],
+        MTECH: ["First Year", "Second Year", "Third Year", "Fourth Year"],
+         
+        DIPLOMA: ["First Year", "Second Year", "Third Year"],
+        BCA: ["First Year", "Second Year", "Third Year"],
+        MCA: ["First Year", "Second Year"],
+        BSCIT: ["First Year", "Second Year", "Third Year"],
+        MSCIT: ["First Year", "Second Year"]
+    };
+
+    courseSelect.addEventListener('change', () => {
+        const selectedCourse = courseSelect.value.toUpperCase();
+       // alert(selectedCourse);
+       	 if(!selectedCourse.localeCompare("DIPLOMA"))
+    	 {
+       		aggregatemarks.style.display = 'none'; 
+       		aggregatemarks.type = 'disable'; 
+       		diplomatext.innerHTML = '';
+    	 }
+       	 else{
+       		aggregatemarks.style.display = 'block';
+       		diplomatext.innerHTML = '/Diploma';
+       	 }
+       	 
+        if (selectedCourse && courseYearMap[selectedCourse]) {
+            yearSelect.innerHTML = '';
+            courseYearMap[selectedCourse].forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            });
+        } else {
+
+            yearSelect.innerHTML = '<option value="">--select year--</option>';
+        }
+    });
+    </script>
+	</section>
+</body>
+</html>
