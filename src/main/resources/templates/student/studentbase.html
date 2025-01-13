@@ -161,11 +161,14 @@
 								<i class="ti-angle-down"></i>
 							  </a>
 								<ul class="show-notification profile-notification">
-
+									
 									<li class="waves-effect waves-light"><a href="profile">
 											<i class="ti-user"></i> Profile
 									</a></li>
-
+									<li class="waves-effect waves-light">
+										<a href="viewprofile"><i
+											class="ti-user"></i>View Profile</a>
+									</li>
 									<li class="waves-effect waves-light"><a
 										href="changepassword"> <i class="ti-lock"></i> Change
 											Password
@@ -194,22 +197,20 @@
 									</a>
 									<div class="user-details">
 										<span id="more-details" style="display: flex; justify-content: center; align-items: center;">
-										<span th:text="${stdinfo.name}"></span>
-										<i class="fa fa-caret-down"></i></span>
+										<span th:text="${stdinfo.name}" style="font-weight: bold;"></span>
+										<!-- <i class="fa fa-caret-down"></i></span> -->
 									</div>
 								</div>
 
-								<div class="main-menu-content">
+								<!-- <div class="main-menu-content">
 									<ul>
 										<li class="more-details"><a href="viewprofile"><i
 												class="ti-user"></i>View Profile</a> <a href="logout"><i
 												class="ti-layout-sidebar-left"></i>Logout</a></li>
 									</ul>
-								</div>
+								</div> -->
 							</div>
-							<!-- <div class="pcoded-navigation-label"
-								data-i18n="nav.category.navigation">Main</div>
-							 -->
+							
 							 <br>
 							<ul class="pcoded-item pcoded-left-item">
 								<li th:class="${active1}"><a href="stdhome"
