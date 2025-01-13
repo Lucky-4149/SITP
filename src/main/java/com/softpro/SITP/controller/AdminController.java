@@ -98,7 +98,7 @@ public class AdminController {
 			// counters
 			List<StudentInfo> astdlist = stdrepo.findStudentsByStatus("true");
 			model.addAttribute("ascount", astdlist.size());
-			List<StudentInfo> dstdlist = stdrepo.findStudentsByStatus("false").reversed();
+			List<StudentInfo> dstdlist = stdrepo.findStudentsByStatus("false");
 			model.addAttribute("dscount", dstdlist.size());
 			long qcount = qbrepo.count();
 			model.addAttribute("qcount", qcount);
@@ -188,7 +188,7 @@ public class AdminController {
 				TestDto dto = new TestDto();
 				model.addAttribute("dto", dto);
 
-				List<Test> testlist = tstrepo.findAll().reversed();
+				List<Test> testlist = tstrepo.findAll();
 				model.addAttribute("testlist", testlist);
 
 				List<Courses> courseList = courseRepo.findAll();
@@ -554,7 +554,7 @@ public class AdminController {
 			AdminInfo adinfo = adrepo.getById(session.getAttribute("admin").toString());
 			model.addAttribute("adinfo", adinfo);
 
-			List<StudentInfo> stdlist = stdrepo.findStudentsByStatus("false").reversed();
+			List<StudentInfo> stdlist = stdrepo.findStudentsByStatus("false");
 			model.addAttribute("stdlist", stdlist);
 			model.addAttribute("active21", "pcoded-hasmenu active pcoded-trigger");
 			model.addAttribute("active6", "active");
@@ -680,7 +680,7 @@ public class AdminController {
 			AdminInfo adinfo = adrepo.getById(session.getAttribute("admin").toString());
 			model.addAttribute("adinfo", adinfo);
 			model.addAttribute("active7", "active");
-			List<Test> testList = tstrepo.findAll().reversed();
+			List<Test> testList = tstrepo.findAll();
 			model.addAttribute("testList", testList);
 
 			return "admin/viewall";
@@ -702,7 +702,7 @@ public class AdminController {
 
 			String testname = request.getParameter("testname");
 			if (testname != null) {
-				List<TestResult> trlist = resultrepo.findResultByTestname(testname).reversed();
+				List<TestResult> trlist = resultrepo.findResultByTestname(testname);
 				model.addAttribute("trlist", trlist);
 				model.addAttribute("stdcount", trlist.size());
 				return "admin/seeresult";
