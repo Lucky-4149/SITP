@@ -28,7 +28,7 @@ public class SendEmailService {
                          "<li><b>Test Start Date:</b> "+arr[0]+ "</li>" +
                          "<li><b>Test Start Time:</b> "+arr[1] +" "+(starttime.getHour()>12?("PM"):("AM"))+"</li>" +
                          // "<li><b>Duration:</b> <b>" + duration + " Hours</b></li>" +
-                         "<li><b>Test Link:</b> <a href='http://192.168.29.126:8080/studentlogin'>http://192.168.29.126:8080</a></li>" +
+                         "<li><b>Test Link:</b> <a href='https://sitp-production.up.railway.app/studentlogin'>https://sitp-production.up.railway.app</a></li>" +
                          "<li><b>User ID:</b> " + mailTo + "</li>" +
                          "<li><b>Password:</b> " + pass + "</li>" +
                          "</ul>" +
