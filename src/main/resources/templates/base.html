@@ -98,57 +98,57 @@
 				this.innerHTML = type === 'password' ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>'; // Change icon if desired
 			});
 		</script>
-	
-		
-	<script>
-	document.getElementById('loginForm').addEventListener('submit', function (event) {
-	    event.preventDefault(); // Prevent the default form submission
 
-	    // Get form values
-	    const email = document.getElementById('email').value;
-	    const password = document.getElementById('password').value;
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
 
-	    let apiUrl = '';
+        // Get form values
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-	    // Check if the device is mobile or desktop
-	    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-	        // If the app is on localhost (desktop environment), use localhost
-	        apiUrl = 'http://localhost:8080/studentlogin';
-	    } else {
-	        // If the app is accessed from a mobile device, use the local IP address of the computer
-	        apiUrl = 'http://192.168.29.126:8080/studentlogin'; // Use your local IP address here
-	    }
-	    
-	    // Send data to the Spring Boot API using fetch
-	    fetch(apiUrl, {
-	        method: 'POST',
-	        headers: {
-	            'Content-Type': 'application/json'
-	        },
-	        body: JSON.stringify({ email, password }) // Send form data as JSON
-	    })
-	    .then(response => {
-	        if (response.ok) {
-	            return response.text(); // Read response as plain text
-	        } else {
-	            return response.text().then(err => { throw new Error(err); });
-	        }
-	    })
-	    .then(message => {
-	        // Display the response message inside the modal
-	        const responseMessageElement = document.getElementById('responseMessage');
-	        responseMessageElement.textContent = message;
-	        responseMessageElement.style.color = 'green'; // Success message in green
-	        window.location.href='/student/stdhome'; // Redirect to student home page
-	    })
-	    .catch(error => {
-	        // Handle errors (e.g., 401 or 404)
-	        const responseMessageElement = document.getElementById('responseMessage');
-	        responseMessageElement.textContent = error.message;
-	        responseMessageElement.style.color = 'red'; // Error message in red
-	    });
-	});
+        // Determine the API URL based on the environment
+        let apiUrl = '';
+
+        if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+            // Development environment
+            apiUrl = 'http://localhost:8080/studentlogin';
+        } else {
+            // Production environment
+            apiUrl = 'https://sitp-production.up.railway.app/studentlogin';
+        }
+
+        // Send data to the Spring Boot API using fetch
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password }) // Send form data as JSON
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text(); // Read response as plain text
+            } else {
+                return response.text().then(err => { throw new Error(err); });
+            }
+        })
+        .then(message => {
+            // Display the response message inside the modal
+            const responseMessageElement = document.getElementById('responseMessage');
+            responseMessageElement.textContent = message;
+            responseMessageElement.style.color = 'green'; // Success message in green
+            window.location.href = '/student/stdhome'; // Redirect to student home page
+        })
+        .catch(error => {
+            // Handle errors (e.g., 401 or 404)
+            const responseMessageElement = document.getElementById('responseMessage');
+            responseMessageElement.textContent = error.message;
+            responseMessageElement.style.color = 'red'; // Error message in red
+        });
+    });
 </script>
+
 
 </body>
 
