@@ -31,19 +31,19 @@
 		<div class="pcoded-inner-content">
 			<div class="main-body">
 				<div class="page-wrapper">
-
 					<div class="page-body">
 						<div class="row">
 							<div class="col-sm-10 mx-auto">
 								<div class="card">
 									<div class="card-header">
 										<h5 class="d-flex">
-											Student - <span th:text="${stdinfo.name}"></span>
+											Student - <span class="m-0" th:text="${stdinfo.name}"></span>
 										</h5>
 										<span>Complete Data of a single Student</span>
 										<div class="card-header-right">
-											<a onclick="goBack();" class="text-decoration-none"> 
-												<i class="ti-arrow-circle-left" style="font-size: 20px; font-weight: bold;"></i>
+											<a onclick="goBack();" class="text-decoration-none"> <i
+												class="ti-arrow-circle-left"
+												style="font-size: 20px; font-weight: bold;"></i>
 											</a>
 										</div>
 										<script>
@@ -92,6 +92,11 @@
 												<h2 class="text-center text-primary p-2">Other Details</h2>
 												<table class="std-table mx-auto " style="width: 70%;">
 													<tr>
+														<th>Test Name</th>
+														<td th:text="${stdinfo.testname}">ABCD</td>
+													</tr>
+													
+													<tr>
 														<th>College Name</th>
 														<td th:text="${stdinfo.collegename}">ABCD</td>
 													</tr>
@@ -116,13 +121,32 @@
 														<td th:text="${stdinfo.aggregatemarks}">123</td>
 													</tr>
 													<tr>
-														<th>Intermediate Marks %</th>
+														<th>Intermediate/Diploma Marks %</th>
 														<td th:text="${stdinfo.intermediatep}">100%</td>
 													</tr>
+													<tr>
+														<th>Intermediate/Diploma Passout Year</th>
+														<td th:text="${stdinfo.intermediatepassoutyear}">0000</td>
+													</tr>
+													<tr>
+														<th>Intermediate/Diploma Board</th>
+														<td th:text="${stdinfo.intermediateboard}">ABCD</td>
+													</tr>
+													
+													
 													<tr>
 														<th>HighSchool Marks %</th>
 														<td th:text="${stdinfo.highschoolp}">100%</td>
 													</tr>
+													<tr>
+														<th>HighSchool Passout Year</th>
+														<td th:text="${stdinfo.highpassoutyear}">0000</td>
+													</tr>
+													<tr>
+														<th>HighSchool Board</th>
+														<td th:text="${stdinfo.highboard}">0000</td>
+													</tr>
+													
 													<tr>
 														<th>Registration Date</th>
 														<td th:text="${stdinfo.regdate}">00/00/0000</td>
