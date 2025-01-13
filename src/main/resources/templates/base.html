@@ -112,16 +112,16 @@
 			// Determine the API URL based on the environment
 			let apiUrl = '';
 
-			// if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-			// 	// Development environment
-			// 	apiUrl = 'http://localhost:8080/studentlogin';
-			// } else {
-			// 	// Production environment
-			// 	apiUrl = 'https://sitp-production.up.railway.app/studentlogin';
-			// }
+			 if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+			 	// Development environment
+			 	apiUrl = 'http://localhost:8080/studentlogin';
+			 } else {
+			 	// Production environment
+			 	apiUrl = 'https://sitp-production.up.railway.app/studentlogin';
+			 }
 
 			// Send data to the Spring Boot API using fetch
-			fetch('https://sitp-production.up.railway.app/studentlogin', {
+			fetch(apiUrl, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
