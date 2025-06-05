@@ -1,14 +1,23 @@
-# Use an OpenJDK 17 base image
-FROM openjdk:17
+# Use Maven + JDK to build first
+FROM maven:3.8.6-openjdk-17 AS build
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the jar file into the image (you must build the project before deploying)
-COPY target/*.jar app.jar
+# Copy pom and source code
+COPY pom.xml .
+COPY src ./src
 
-# Expose the application port
+# Build the jar
+RUN mvn clean package -DskipTests
+
+# Use slim JDK image for running
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+# Copy jar from build stage
+COPY --from=build /app/target/*.jar app.jar
+
 EXPOSE 8080
 
-# Start the application
 CMD ["java", "-jar", "app.jar"]
